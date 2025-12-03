@@ -1,0 +1,577 @@
+/* ========================
+   Tokens – luxe site theme
+=========================*/
+:root{
+  --brand-gold:#b38538;
+  --brand-blue:#abe2ec;
+  --footer-pink:#FEEFED;
+  --page-pink:#FFDCEB; /* same pretty pink as homepage */
+  --og-dust:#E6C7B4;
+  --ink:#3A2F2A;
+  --muted:#6d6159;
+  --card:#ffffff;
+  --line:rgba(0,0,0,.12);
+  --shadow-soft:0 12px 30px rgba(0,0,0,.12);
+  --shadow-strong:0 18px 40px rgba(0,0,0,.18);
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:var(--page-pink); /* consistent pink */
+  font-family:"Poppins",sans-serif;
+  color:var(--ink);
+}
+
+.wrap{
+  background:var(--page-pink); /* no gradient, matches homepage */
+  padding-bottom:0;
+  min-height:100vh;
+}
+
+.container{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 22px;
+}
+
+/* Reveal animation hook */
+.reveal{}
+.reveal.is-in{opacity:1;transform:none;}
+.reveal{
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .4s ease,transform .4s ease;
+}
+
+/* ========================
+   Header
+=========================*/
+.site-head{
+  text-align:center;
+  padding:30px 0 10px;
+}
+.brand{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+}
+.brand-tagline{
+  font-size:14px;
+  font-weight:600;
+  color:var(--muted);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+/* ========================
+   Contact Hero
+=========================*/
+.contact-hero{
+  padding:50px 0 20px;
+}
+
+/* Light blue on-brand “bubble” with glow */
+/* Contact hero section */
+.contact-hero{
+  padding:50px 0 20px;
+}
+
+/* Glassy “bubble” card */
+.contact-hero-inner{
+  border-radius:26px;
+  padding:28px 22px 32px;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,0.92),
+    rgba(235,248,252,0.96)
+  );
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(171,226,236,0.7); /* soft blue outline */
+  box-shadow:
+    0 22px 50px rgba(0,0,0,0.16),
+    0 0 0 1px rgba(255,255,255,0.7);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Soft glow beneath the card (no dark ring) */
+.contact-hero-inner::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:-30px;
+  height:56px;
+  background:radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0)
+  );
+  opacity:0.9;
+  filter:blur(6px);
+  z-index:0;
+}
+
+/* Very light bubbly highlight in the corner (not dark) */
+.contact-hero-inner::after{
+  content:"";
+  position:absolute;
+  top:-40px;
+  right:-40px;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle at center,
+    rgba(171,226,236,0.65),
+    rgba(171,226,236,0)
+  );
+  opacity:0.8;
+  z-index:0;
+}
+
+/* Heading & text with strong contrast for readability */
+.contact-title{
+  font-family:"Raleway",sans-serif;
+  font-size:clamp(30px,4.6vw,42px);
+  font-weight:800;
+  margin:0 0 6px;
+  color:#0b273c; /* dark navy for contrast */
+  position:relative;
+  z-index:1;
+}
+
+.contact-subtitle{
+  margin:0 auto 20px;
+  max-width:640px;
+  font-size:clamp(15px,2.2vw,17px);
+  line-height:1.7;
+  color:#1b3647; /* slightly softer navy but still high contrast */
+  position:relative;
+  z-index:1;
+}
+
+/* Chips row (unchanged layout) */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-top:10px;
+  position:relative;
+  z-index:1;
+}
+
+/* Gold party buttons – kept, but polished slightly */
+.chip{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 18px;
+  border-radius:999px;
+  background:linear-gradient(180deg,var(--brand-gold),#a97a32);
+  border:1px solid rgba(255,255,255,0.9);
+  color:#fff;
+  font-weight:700;
+  font-size:14px;
+  text-decoration:none;
+  box-shadow:0 14px 34px rgba(0,0,0,0.28);
+  text-shadow:0 1px 2px rgba(0,0,0,0.5);
+  transition:all 0.18s ease;
+  white-space:nowrap;
+}
+.chip:hover{
+  transform:translateY(-2px) scale(1.02);
+  filter:brightness(1.06);
+}
+
+
+/* ========================
+   Main contact section
+=========================*/
+.contact-main{
+  padding:40px 0 70px;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:22px;
+}
+@media (max-width:900px){
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Cards */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow:var(--shadow-soft);
+  overflow:hidden;
+}
+.card .head{
+  padding:16px 18px;
+  background:linear-gradient(180deg,#ffffff,#f8f1ea);
+  border-bottom:1px solid rgba(31,41,55,.06);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.card .head h3{
+  margin:0;
+  font-family:"Raleway",sans-serif;
+  font-size:22px;
+  line-height:1.2;
+}
+.card .body{
+  padding:18px 18px 20px;
+}
+
+/* Body type */
+.card p,
+.card li,
+.card label,
+.card small{
+  font-size:15.5px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* ========================
+   Contact form styles
+=========================*/
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.form-row{
+  width:100%;
+}
+.form-row--split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+@media (max-width:640px){
+  .form-row--split{
+    grid-template-columns:1fr;
+  }
+}
+
+label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-weight:600;
+  color:var(--ink);
+}
+
+input,
+textarea{
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.16);
+  padding:10px 12px;
+  font-size:15px;
+  font-family:"Poppins",sans-serif;
+  color:var(--ink);
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+  outline:none;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .1s ease;
+}
+input:focus,
+textarea:focus{
+  border-color:var(--brand-gold);
+  box-shadow:0 0 0 2px rgba(179,133,56,.16);
+  transform:translateY(-1px);
+}
+textarea{
+  resize:vertical;
+  min-height:110px;
+}
+
+.form-row--actions{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:8px;
+}
+.form-note{
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Blue CTA button (kept the same) */
+.bbp-btn-blue{
+  background:var(--brand-blue);
+  color:#fff !important;
+  padding:12px 22px;
+  border-radius:999px;
+  font-weight:700;
+  text-decoration:none;
+  border:2px solid #7dbcc8;
+  font-size:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
+  transition:all .2s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-shadow:0 1px 3px rgba(0,0,0,.35);
+  cursor:pointer;
+}
+.bbp-btn-blue:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.06);
+}
+
+/* ========================
+   Contact info block
+=========================*/
+.contact-ways{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:12px;
+}
+@media (max-width:640px){
+  .contact-ways{
+    grid-template-columns:1fr;
+  }
+}
+.way{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.08);
+  border-radius:18px;
+  padding:12px 14px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  box-shadow:var(--shadow-soft);
+}
+.way .icon{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:#a7cab5;
+  color:#0b2d24;
+  font-weight:700;
+  border:1px solid rgba(0,0,0,.08);
+  flex-shrink:0;
+}
+.way b{
+  display:block;
+  margin-bottom:4px;
+  font-weight:700;
+  color:var(--ink);
+}
+
+.pill{
+  display:inline-block;
+  padding:8px 12px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:999px;
+  font-size:13px;
+  color:#52606a;
+  box-shadow:0 6px 16px rgba(0,0,0,.10);
+}
+
+.next-steps{
+  margin-top:18px;
+}
+.next-steps h4{
+  margin:0 0 6px;
+  font-family:"Raleway",sans-serif;
+  font-size:17px;
+}
+.next-steps p{
+  margin:0;
+}
+
+/* ========================
+   Luxe Footer
+=========================*/
+.bbp-footer{
+  --pink:#FEEFED;
+  --gold:#b38538;
+  --green:#344235;
+  --ink:#111827;
+  --muted:#4b5563;
+  --h:"Caudex", serif;
+  --b:"Josefin Slab", serif;
+  --shadow:0 8px 25px rgba(0,0,0,.08);
+
+  background:var(--pink);
+  color:var(--ink);
+  font-family:var(--b);
+  text-align:center;
+  padding:60px 20px 60px;
+  margin-top:0;
+}
+
+/* Footer logo shimmer */
+.bbp-logo-wrap{
+  position:relative;
+  width:90px;
+  margin:0 auto 14px;
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,.06))
+          drop-shadow(0 0 10px rgba(179,133,56,.12));
+}
+.bbp-logo{
+  display:block;
+  width:100%;
+  height:auto;
+  animation:bbp-pulse 4s ease-in-out infinite;
+}
+@keyframes bbp-shimmer{
+  0%{transform:translateX(-120%)}
+  100%{transform:translateX(120%)}
+}
+@keyframes bbp-pulse{
+  0%,100%{
+    filter: drop-shadow(0 2px 0 rgba(0,0,0,.06))
+            drop-shadow(0 0 8px rgba(179,133,56,.10));
+  }
+  50%{
+    filter: drop-shadow(0 2px 0 rgba(0,0,0,.06))
+            drop-shadow(0 0 16px rgba(179,133,56,.22));
+  }
+}
+.bbp-logo-wrap::after{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  pointer-events:none;
+  background:linear-gradient(115deg,
+    rgba(255,255,255,0) 30%,
+    rgba(255,255,255,.85) 50%,
+    rgba(255,255,255,0) 70%);
+  transform:translateX(-120%);
+  mix-blend-mode:screen;
+  opacity:.45;
+  border-radius:14px;
+  animation:bbp-shimmer 5.2s linear infinite;
+}
+
+/* Footer text + buttons */
+.bbp-name{
+  font-family:var(--h);
+  font-weight:700;
+  font-size:clamp(20px,2.5vw,26px);
+  margin:0 0 10px;
+  color:var(--ink);
+}
+.bbp-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+.bbp-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:.02em;
+  padding:10px 16px;
+  border-radius:999px;
+  border:2px solid transparent;
+  font-size:14px;
+  box-shadow:var(--shadow);
+  transition:all .2s ease;
+}
+.bbp-btn.primary{
+  background:linear-gradient(180deg,var(--gold),#a97a32);
+  color:#fff;
+}
+.bbp-btn.primary:hover{
+  filter:brightness(1.1);
+}
+.bbp-btn.alt{
+  background:#fff;
+  color:var(--green);
+  border-color:var(--green);
+}
+.bbp-btn.alt:hover{
+  background:var(--gold);
+  color:#fff;
+}
+
+/* Socials */
+.bbp-socials{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin:20px 0;
+}
+.bbp-socials a{
+  width:42px;
+  height:42px;
+  background:#fff;
+  border:2px solid var(--gold);
+  border-radius:50%;
+  box-shadow:var(--shadow);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:.25s;
+}
+.bbp-socials a svg{
+  width:20px;
+  height:20px;
+  fill:var(--gold);
+  transition:.25s;
+}
+.bbp-socials a:hover{
+  background:var(--gold);
+  transform:translateY(-2px);
+}
+.bbp-socials a:hover svg{
+  fill:#fff;
+}
+.bbp-bottom{
+  margin-top:20px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--muted);
+}
+
+/* ========================
+   Responsive tweaks
+=========================*/
+@media (max-width:960px){
+  .contact-hero-inner{
+    border-radius:20px;
+    padding:22px 18px 26px;
+  }
+}
+@media (max-width:640px){
+  .contact-hero{
+    padding-top:34px;
+  }
+  .contact-hero-inner{
+    border-radius:18px;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+}
