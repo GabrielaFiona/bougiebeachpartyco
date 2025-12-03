@@ -1,0 +1,425 @@
+/* Bougie Beach Party Co — Updated Luxe Home */
+
+/* Tokens */
+:root{
+  --brand-gold:#b38538;
+  --brand-blue:#abe2ec;
+  --footer-pink:#FEEFED;
+  --og-dust:#E6C7B4;
+  --ink:#3A2F2A;
+  --muted:#6d6159;
+  --card:#ffffff;
+  --line:rgba(0,0,0,.12);
+  --shadow:0 16px 40px rgba(0,0,0,.12);
+}
+
+/* Base */
+body{
+  margin:0;
+  background:var(--footer-pink);
+  font-family:"Poppins",sans-serif;
+  color:var(--ink);
+}
+
+/* Softer page gradient: light pink → bougie pink → footer pink */
+.wrap{
+  background:linear-gradient(
+    180deg,
+    #ffe9e2,
+    var(--og-dust),
+    var(--footer-pink)
+  );
+  padding-bottom:0;
+}
+
+.container{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 22px;
+}
+
+/* Simple reveal hook (JS toggles .is-in if you want) */
+.reveal{}
+
+/* Header */
+.site-head{
+  text-align:center;
+  padding:30px 0 10px;
+}
+.brand{
+  display:flex;
+  justify-content:center;
+}
+
+/* Hero */
+.hero{
+  background:url("https://raw.githubusercontent.com/GabrielaFiona/bougie-assets/9df34301c8c2518435e457578a6969fdffeed562/pinkbeachbackgnd.png")
+    center/cover no-repeat;
+  padding:90px 20px;
+  border-radius:25px;
+  margin:20px;
+  box-shadow:var(--shadow);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-inner{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* Crown logo */
+.hero-logo{
+  height:120px;
+  width:auto;
+  margin:0 auto 18px;
+  display:block;
+}
+
+/* Dark blue “bubble” panel behind hero text */
+.hero-panel{
+  background:rgba(11,39,60,0.78);
+  border-radius:24px;
+  padding:26px 22px 28px;
+  max-width:720px;
+  width:100%;
+  backdrop-filter:blur(3px);
+  box-shadow:0 18px 46px rgba(0,0,0,.4);
+}
+
+.title{
+  font-family:"Raleway",sans-serif;
+  font-size:clamp(32px,5vw,48px);
+  font-weight:800;
+  margin:0 0 12px;
+  color:#fff;
+}
+
+.lead{
+  font-size:clamp(16px,2.4vw,18px);
+  line-height:1.6;
+  margin:0;
+  color:#f8fbff;
+}
+
+/* CTA Row */
+.cta-row{
+  margin-top:28px;           /* extra breathing room under text */
+  display:flex;
+  justify-content:center;
+}
+
+/* Blue buttons (hero, Learn More, Request Availability) */
+.bbp-btn-blue{
+  background:var(--brand-blue);
+  color:#fff !important;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:700;
+  text-decoration:none;
+  border:2px solid #7dbcc8;   /* darker blue outline to pop */
+  font-size:17px;
+  box-shadow:0 10px 30px rgba(0,0,0,.22);
+  transition:all .2s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+}
+.bbp-btn-blue:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.06);
+}
+
+/* Sections */
+.section{padding:80px 0;}
+.wave{
+  background:#fff;
+  padding:80px 0;
+  border-radius:40px 40px 0 0;
+}
+
+/* Headings */
+.h2{
+  font-family:"Raleway",sans-serif;
+  font-size:clamp(28px,4vw,40px);
+  text-align:center;
+  margin:0 0 30px;
+}
+.h2.tight{margin-bottom:10px;}
+.h3{
+  font-family:"Raleway",sans-serif;
+  font-size:clamp(22px,3vw,28px);
+}
+
+/* How It Works */
+.how{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.step{
+  background:#fff;
+  padding:22px 20px 24px;
+  border-radius:18px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  text-align:center;
+}
+.step .num{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  margin:0 auto 10px;
+  background:var(--brand-gold);
+  color:#fff;
+}
+.step h3{
+  margin:0 0 6px;
+  font-family:"Raleway",sans-serif;
+}
+.step p{
+  margin:0;
+  color:var(--muted);
+}
+
+/* About + Themes */
+.grid-about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+.card{
+  background:#fff;
+  padding:28px;
+  border-radius:22px;
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.about-text{
+  color:var(--muted);
+  line-height:1.6;
+  margin:14px 0 0;
+}
+.about-cta{
+  margin-top:26px;
+  text-align:center;
+}
+
+/* Theme bubbles with GOLD outline */
+.themes .h3{margin:0 0 14px;}
+.theme-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.theme-bubble{
+  background:#fff;
+  border:2px solid var(--brand-gold);
+  padding:18px;
+  border-radius:20px;
+  font-weight:800;
+  text-align:center;
+  color:var(--ink);
+  text-decoration:none;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+  transition:all .2s ease;
+}
+.theme-bubble:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+/* CTA band — no weird white slab above; sits on pink gradient */
+.contact-band{
+  background:transparent;
+  padding:50px 0 70px;
+}
+.band{
+  text-align:center;
+  padding:30px 24px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid var(--line);
+  max-width:720px;
+  margin:0 auto;
+}
+.band .bbp-btn-blue{
+  margin-top:18px;
+}
+
+/* Luxe Footer (cute white/gold style) */
+.bbp-footer{
+  --pink:#FEEFED;
+  --gold:#b38538;
+  --green:#344235;
+  --ink:#111827;
+  --muted:#4b5563;
+  --h:"Caudex", serif;
+  --b:"Josefin Slab", serif;
+  --shadow:0 8px 25px rgba(0,0,0,.08);
+
+  background:var(--pink);
+  color:var(--ink);
+  font-family:var(--b);
+  text-align:center;
+  padding:60px 20px 60px;
+  margin-top:0;
+}
+
+/* Top-center logo */
+.bbp-logo-wrap{
+  position:relative;
+  width:90px;
+  margin:0 auto 14px;
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,.06))
+          drop-shadow(0 0 10px rgba(179,133,56,.12));
+}
+.bbp-logo{
+  display:block;
+  width:100%;
+  height:auto;
+  animation:bbp-pulse 4s ease-in-out infinite;
+}
+/* shimmer */
+.bbp-logo-wrap::after{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  pointer-events:none;
+  background:linear-gradient(115deg,
+    rgba(255,255,255,0) 30%,
+    rgba(255,255,255,.85) 50%,
+    rgba(255,255,255,0) 70%);
+  transform:translateX(-120%);
+  mix-blend-mode:screen;
+  opacity:.45;
+  border-radius:14px;
+  animation:bbp-shimmer 5.2s linear infinite;
+}
+@keyframes bbp-shimmer{
+  0%{transform:translateX(-120%)}
+  100%{transform:translateX(120%)}
+}
+@keyframes bbp-pulse{
+  0%,100%{
+    filter: drop-shadow(0 2px 0 rgba(0,0,0,.06))
+            drop-shadow(0 0 8px rgba(179,133,56,.10));
+  }
+  50%{
+    filter: drop-shadow(0 2px 0 rgba(0,0,0,.06))
+            drop-shadow(0 0 16px rgba(179,133,56,.22));
+  }
+}
+
+/* Footer text + buttons */
+.bbp-name{
+  font-family:var(--h);
+  font-weight:700;
+  font-size:clamp(20px,2.5vw,26px);
+  margin:0 0 10px;
+  color:var(--ink);
+}
+.bbp-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:20px;
+}
+.bbp-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-decoration:none;
+  font-weight:800;
+  letter-spacing:.02em;
+  padding:10px 16px;
+  border-radius:999px;
+  border:2px solid transparent;
+  font-size:14px;
+  box-shadow:var(--shadow);
+  transition:all .2s ease;
+}
+.bbp-btn.primary{
+  background:linear-gradient(180deg,var(--gold),#a97a32);
+  color:#fff;
+}
+.bbp-btn.primary:hover{
+  filter:brightness(1.1);
+}
+.bbp-btn.alt{
+  background:#fff;
+  color:var(--green);
+  border-color:var(--green);
+}
+.bbp-btn.alt:hover{
+  background:var(--gold);
+  color:#fff;
+}
+
+/* Socials */
+.bbp-socials{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin:20px 0;
+}
+.bbp-socials a{
+  width:42px;
+  height:42px;
+  background:#fff;
+  border:2px solid var(--gold);
+  border-radius:50%;
+  box-shadow:var(--shadow);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:.25s;
+}
+.bbp-socials a svg{
+  width:20px;
+  height:20px;
+  fill:var(--gold);
+  transition:.25s;
+}
+.bbp-socials a:hover{
+  background:var(--gold);
+  transform:translateY(-2px);
+}
+.bbp-socials a:hover svg{
+  fill:#fff;
+}
+
+.bbp-bottom{
+  margin-top:20px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--muted);
+}
+
+/* Responsive tweaks */
+@media (max-width:960px){
+  .hero{
+    margin:16px;
+    border-radius:20px;
+    padding:70px 16px;
+  }
+  .grid-about{grid-template-columns:1fr;}
+  .how{grid-template-columns:1fr 1fr;}
+}
+
+@media (max-width:640px){
+  .how{grid-template-columns:1fr;}
+  .theme-grid{grid-template-columns:1fr 1fr;}
+  .hero-logo{height:100px;}
+}
